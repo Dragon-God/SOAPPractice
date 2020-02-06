@@ -69,7 +69,7 @@ class MY_SoapServer extends CI_Controller
 		parent::__construct();
 		require_once(APPPATH."third_party/nusoap-0.9.5/lib/nusoap.php");
 		$this->server = new nusoap_server();
-		$this->server->configureWSDL($name, $namespace);
+		$this->server->configureWSDL($name, $namespace, $namespace);
 		$this->name = $name;
 		$this->namespace = $namespace;
 	}
