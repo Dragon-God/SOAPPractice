@@ -15,6 +15,7 @@ class BooksServer extends MY_SoapServer
    function getBookData($isbn)
    {
       $this->loads("booksmodel");
+      return $this->booksmodel->getBook($isbn);
    }
 
    function index()

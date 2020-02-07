@@ -11,6 +11,14 @@ class BooksModel extends CI_Model
       $query = $this->db
          ->where("isbn", $isbn)
          ->get("books");
-      return $query->result()[0];
+      return $query->row();
+   }
+
+   function getBooks($isbn)
+   {
+      $query = $this->db
+         ->where("isbn", $isbn)
+         ->get("books");
+      return $query->result();
    }
 }
