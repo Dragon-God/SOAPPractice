@@ -6,7 +6,7 @@ class BooksServer extends MY_SoapServer
       parent::__construct("BooksServer", "http://localhost/soappractice/booksserver");
    }
 
-   function getBook($isbn, $property)
+   function getBookInfo($isbn, $property)
    {
       $this->loads("booksmodel");
       return $this->booksmodel->getBook($isbn)->$property;
@@ -15,7 +15,7 @@ class BooksServer extends MY_SoapServer
    function index()
    {
       $this->register(
-         "BooksServer.getBook",
+         "BooksServer.getBookInfo",
          [
             "isbn" => "xsd:string",
             "property" => "xsd:string"

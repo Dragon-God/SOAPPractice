@@ -6,10 +6,10 @@ class BooksClient extends MY_SoapClient
       parent::__construct("http://localhost/soappractice/index.php/booksserver/?wsdl");
    }
 
-   function getBook($isbn)
+   function getBookInfo($isbn)
    {
-      $author = $this->call([$isbn, "author_name"], "BooksServer.getBook");
-      $title = $this->call([$isbn, "title"], "BooksServer.getBook");
+      $author = $this->call([$isbn, "author_name"], "BooksServer.getBookInfo");
+      $title = $this->call([$isbn, "title"], "BooksServer.getBookInfo");
       echo "$title: $author <br><br>";
    }
 }
