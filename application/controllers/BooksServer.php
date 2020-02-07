@@ -4,6 +4,39 @@ class BooksServer extends MY_SoapServer
    function __construct()
    {
       parent::__construct("BooksServer", "http://localhost/soappractice/booksserver");
+      $this->server->wsdl->addComplexType(
+         "bookData",
+         "complexType",
+         "struct",
+         "all",
+         "",
+         [
+            "id" => [
+               "name" => "id",
+               "type" => "xsd:integer"
+            ],
+            "title" => [
+               "name" => "title",
+               "type" => "xsd:string"
+            ],
+            "author_name" => [
+               "name" => "author_name",
+               "type" => "xsd:string"
+            ],
+            "price" => [
+               "name" => "price",
+               "type" => "xsd:string"
+            ],
+            "isbn" => [
+               "name" => "isbn",
+               "type" => "xsd:string"
+            ],
+            "category" => [
+               "name" => "category",
+               "type" => "xsd:string"
+            ],
+         ]
+      );
    }
 
    function getBookInfo($isbn, $property)
@@ -27,6 +60,11 @@ class BooksServer extends MY_SoapServer
             "property" => "xsd:string"
          ],
          ["data" => "xsd:string"]
+      );
+      $this->register(
+         "BooksServer.getBookData",
+         ["isbn" => "xsd:string"],
+         ["books" => "tns:booksType"]
       );
 
       $this->serve();
