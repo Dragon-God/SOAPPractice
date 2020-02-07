@@ -20,7 +20,7 @@ class BooksServer extends MY_SoapServer
             "isbn" => "xsd:string",
             "property" => "xsd:string"
          ],
-         ["return" => "xsd:string"]
+         ["data" => "xsd:string"]
       );
 
       $this->serve();

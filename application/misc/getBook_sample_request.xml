@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<SOAP-ENV:Envelope SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" 
+   xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+   xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" 
+   xmlns:tns="http://localhost/soappractice/booksserver">
+   <SOAP-ENV:Body>
+      <tns:BooksServer.getBook xmlns:tns="http://localhost/soappractice/booksserver">
+         <isbn xsi:type="xsd:string">ABC-123-456</isbn>
+         <property xsi:type="xsd:string">title</property>
+      </tns:BooksServer.getBook>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

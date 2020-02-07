@@ -33,12 +33,12 @@ class StocksServer extends MY_SoapServer
       $this->register(
          "StocksServer.price",
          ["symbol" => "xsd:string"],
-         ["return" => "xsd:decimal"]
+         ["price" => "xsd:decimal"]
       );
       $this->register(
          "StocksServer.hello",
          ["name" => "xsd:string"],
-         ["return" => "xsd:string"]
+         ["greeting" => "xsd:string"]
       );
       $this->register(
          "StocksServer.add",
@@ -46,7 +46,7 @@ class StocksServer extends MY_SoapServer
             "a" => "xsd:decimal",
             "b" => "xsd:decimal"
          ],
-         ["return" => "xsd:decimal"]
+         ["sum" => "xsd:decimal"]
       );
       $this->register(
          "StocksServer.addStock",
@@ -54,9 +54,9 @@ class StocksServer extends MY_SoapServer
             "symbol"  => "xsd:string",
             "price" => "xsd:string"
          ],
-         ["return" => "xsd:integer"]
+         ["id" => "xsd:integer"]
       );
-      
+
       $this->serve();
    }
 }

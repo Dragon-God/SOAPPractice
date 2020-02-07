@@ -52,6 +52,11 @@ class MY_SoapClient
 					echo "<h2>Response</h2>";
 					echo "<pre>" . htmlspecialchars($this->client->response, ENT_QUOTES) . "</pre>";
 				} else {
+					echo "<h2>Request</h2>";
+					echo "<pre>" . htmlspecialchars($this->client->request, ENT_QUOTES) . "</pre>";
+					echo "<h2>Response</h2>";
+					echo "<pre>" . htmlspecialchars($this->client->response, ENT_QUOTES) . "</pre>";
+					
 					return $result;
 				}
 			}
