@@ -46,12 +46,12 @@ class MY_SoapClient
 				$err = $this->client->getError();
 				if ($err) {
 					echo "<h2>Error</h2><pre>$err</pre>";
-				} else {
+
 					echo "<h2>Request</h2>";
 					echo "<pre>" . htmlspecialchars($this->client->request, ENT_QUOTES) . "</pre>";
 					echo "<h2>Response</h2>";
 					echo "<pre>" . htmlspecialchars($this->client->response, ENT_QUOTES) . "</pre>";
-					
+				} else {
 					return $result;
 				}
 			}
