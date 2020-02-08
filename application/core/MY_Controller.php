@@ -33,6 +33,14 @@ class MY_SoapClient
       }
 	}
 
+	function dump_http_message()
+	{
+		echo "<h2>Request</h2>";
+		echo "<pre>" . htmlspecialchars($this->client->request, ENT_QUOTES) . "</pre>";
+		echo "<h2>Response</h2>";
+		echo "<pre>" . htmlspecialchars($this->client->response, ENT_QUOTES) . "</pre>";
+	}
+
 	function call($params, $action)
    {
       try {
@@ -40,22 +48,15 @@ class MY_SoapClient
 			
 			if ($this->client->fault) {
 				echo "<h2>Fault<h2><pre>";
-				print_r($result);
-				echo "</pre>";
+				var_dump($result);
+				$this->dump_http_message();
 			} else {
 				$err = $this->client->getError();
 				if ($err) {
 					echo "<h2>Error</h2><pre>$err</pre>";
-
-					echo "<h2>Request</h2>";
-					echo "<pre>" . htmlspecialchars($this->client->request, ENT_QUOTES) . "</pre>";
-					echo "<h2>Response</h2>";
-					echo "<pre>" . htmlspecialchars($this->client->response, ENT_QUOTES) . "</pre>";
+					$this->dump_http_message();
 				} else {
-					echo "<h2>Request</h2>";
-					echo "<pre>" . htmlspecialchars($this->client->request, ENT_QUOTES) . "</pre>";
-					echo "<h2>Response</h2>";
-					echo "<pre>" . htmlspecialchars($this->client->response, ENT_QUOTES) . "</pre>";
+					$this->dump_http_message();
 					
 					return $result;
 				}
